@@ -134,9 +134,28 @@ CalculateResult = () => {
     // 
 }
 
+RunTests = () => {
+    console.log("Running Tests!");
+    AddTwoNumbersTest();
+    console.log("Tests completed!");
+}
 
 
-//console.log("input: " + input)
-// +
-// &times;
-// ÷
+AddTwoNumbersTest = () => {
+    console.log("Running AddTwoNumbersTest!");
+    HelperTestClickButton("1");
+    HelperTestClickButton("+");
+    HelperTestClickButton("2");
+    HelperTestClickButton("=");
+}
+
+
+HelperTestClickButton = (desiredButton) => {
+        for (let i = 0; i < buttons.length; i++) {
+            // Simulate desired button click 
+            if (buttons[i].innerText === desiredButton) {
+                buttons[i].click();
+        }
+    }
+    console.log("Button Test!");
+}
