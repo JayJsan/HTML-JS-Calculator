@@ -1,0 +1,37 @@
+.display {
+    border: 1px solid red;
+    text-align: right;
+    background-color: black;
+    color: white;
+}
+
+.calculator-container {
+    width: 50%;
+    height: 70%;
+}
+
+.keys-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1px;
+}
+
+.keys-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.key-cell, .key-cell-operator, .key-cell-equals {
+    border: 1px solid red;
+    text-align: center;
+    cursor: pointer;
+}
+
+.key-cell-operator {
+    background-color: lightgray;
+}
+
+.key-cell-equals {
+    background-color: orange;
+    flex: 1;
+}
