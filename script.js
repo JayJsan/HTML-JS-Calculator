@@ -134,9 +134,14 @@ CalculateResult = () => {
     // 
 }
 
+// TEST CASES AREA -------------------------------------------------------------------------------------------------------
+
 RunTests = () => {
     console.log("Running Tests!");
     AddTwoNumbersTest();
+    SubtractTwoNumbersTest();
+    MultiplyTwoNumbersTest();
+    DivideTwoNumbersTest();
     console.log("Tests completed!");
 }
 
@@ -147,8 +152,39 @@ AddTwoNumbersTest = () => {
     HelperTestClickButton("+");
     HelperTestClickButton("2");
     HelperTestClickButton("=");
+    console.log("Expected: 3!");
+    console.log("Actual: " + output);
 }
 
+SubtractTwoNumbersTest = () => {
+    console.log("Running SubtractTwoNumbersTest!");
+    HelperTestClickButton("3");
+    HelperTestClickButton("-");
+    HelperTestClickButton("2");
+    HelperTestClickButton("=");
+    console.log("Expected: 1!");
+    console.log("Actual: " + output);
+}
+
+MultiplyTwoNumbersTest = () => {
+    console.log("Running MultiplyTwoNumbersTest!");
+    HelperTestClickButton("3");
+    HelperTestClickButton("×");
+    HelperTestClickButton("2");
+    HelperTestClickButton("=");
+    console.log("Expected: 6!");
+    console.log("Actual: " + output);
+}
+
+DivideTwoNumbersTest = () => {
+    console.log("Running DivideTwoNumbersTest!");
+    HelperTestClickButton("6");
+    HelperTestClickButton("÷");
+    HelperTestClickButton("2");
+    HelperTestClickButton("=");
+    console.log("Expected: 3!");
+    console.log("Actual: " + output);
+}
 
 HelperTestClickButton = (desiredButton) => {
         for (let i = 0; i < buttons.length; i++) {
@@ -157,5 +193,5 @@ HelperTestClickButton = (desiredButton) => {
                 buttons[i].click();
         }
     }
-    console.log("Button Test!");
+    console.log("Button Test Click!");
 }
