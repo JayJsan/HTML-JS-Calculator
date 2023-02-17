@@ -2,7 +2,7 @@ const buttons = document.getElementsByTagName("button");
 const calculatorDisplay = document.getElementById("display-text");
 
 let currentInput = "";
-let output = 0;
+let output;
 let listOfNumbers = [];
 let listOfOperators = [];
 
@@ -14,27 +14,27 @@ for (let i = 0; i < buttons.length; i++) {
             case ("+"):
                 listOfOperators.push("+");
                 AddInputToList();
-                //RenderDisplay();
+                RenderDisplay(buttonPressed);
                 console.log(listOfOperators);
                 break;
             case ("-"):
                 listOfOperators.push("-");
                 AddInputToList();
-                //RenderDisplay();
+                RenderDisplay(buttonPressed);
                 break;
             case ("×"):
                 listOfOperators.push("×");
                 AddInputToList();
-                //RenderDisplay();
+                RenderDisplay(buttonPressed);
                 break;
             case ("÷"):
                 listOfOperators.push("÷");
                 AddInputToList();
-                //RenderDisplay();
+                RenderDisplay(buttonPressed);
                 break;
             case ("."):
                 currentInput += buttonPressed;
-                //RenderDisplay();
+                RenderDisplay(buttonPressed);
                 console.log(currentInput);
                 break;
             case ("AC"):
@@ -51,6 +51,7 @@ for (let i = 0; i < buttons.length; i++) {
                 break;
             default:
                 currentInput += buttonPressed;
+                RenderDisplay(buttonPressed);
                 console.log(currentInput);
                 console.log(listOfNumbers);
         }
@@ -73,18 +74,13 @@ AddInputToList = () => {
     currentInput = "";
 }
 
-RenderDisplay = () => {
-    let index = 0;
-    while ((index < listOfNumbers.length - 1) || (index < listOfOperators.length - 1)) {
-        // number
-        // operator
-        // number
-        // operator
-        // show equation
-        // when press equals
-        // render only answer
+RenderDisplay = (text) => {
+    if (calculatorDisplay.innerText !== "0") {
+        calculatorDisplay.textContent += text;
+        return;
     }
-    //calculatorDisplay.innerText 
+
+    calculatorDisplay.textContent = text;
 }
 
 RenderResult = () => {
