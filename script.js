@@ -1,9 +1,9 @@
 const buttons = document.getElementsByTagName("button");
 
 let currentInput = "";
-let listOfNumbers = [];
 let output = 0;
-let orderOfOperations = [];
+let listOfNumbers = [];
+let listOfOperators = [];
 
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function(){
@@ -13,54 +13,47 @@ for (let i = 0; i < buttons.length; i++) {
             case ("+"):
                 console.log("+!!!");
 
-                orderOfOperations.push("+");
-                listOfNumbers.push(+currentInput);
-                currentInput = "";
-
-                console.log(orderOfOperations);
+                listOfOperators.push("+");
+                AddInputToList();
+                RenderDisplay();
+                console.log(listOfOperators);
                 break;
             case ("-"):
                 console.log("-!!!");
 
-                orderOfOperations.push("-");
-                listOfNumbers.push(+currentInput);
-                currentInput = "";
-
+                listOfOperators.push("-");
+                AddInputToList();
+                RenderDisplay();
                 break;
             case ("×"):
                 console.log("x!!!");
 
-                orderOfOperations.push("×");
-                listOfNumbers.push(+currentInput);
-                currentInput = "";
-                
+                listOfOperators.push("×");
+                AddInputToList();
+                RenderDisplay();
                 break;
             case ("÷"):
                 console.log("÷!!!");
-                orderOfOperations.push("÷");
-                listOfNumbers.push(+currentInput);
-                currentInput = "";
-
+                listOfOperators.push("÷");
+                AddInputToList();
+                RenderDisplay();
                 break;
             case ("."):
                 console.log("number pressed " + buttonPressed);
-
                 currentInput += buttonPressed;
-                listOfNumbers.push(+currentInput);
-                currentInput = "";
-
+                RenderDisplay();
                 console.log(currentInput);
                 break;
             case ("AC"):
                 console.log("clear");
                 ClearCalcaulator();
+                RenderDisplay();
                 break;
             case ("="):
                 console.log("CALCULATE");
-                orderOfOperations.forEach((operator) => {
-
-                });
-
+                CalculateResult();
+                ClearCalcaulator();
+                RenderResult();
                 console.log(currentInput);
                 break;
             default:
@@ -75,13 +68,38 @@ for (let i = 0; i < buttons.length; i++) {
 ClearCalcaulator = () => {
     currentInput = [];
     listOfNumbers = [];
-    orderOfOperations = [];
+    listOfOperators = [];
 }
 
 AddInputToList = () => {
     listOfNumbers.push(+currentInput);
     currentInput = "";
 }
+
+RenderDisplay = () => {
+    let index = 0;
+    while ((index < listOfNumbers.length - 1) || (index < listOfOperators.length - 1)) {
+        // number
+        // operator
+        // number
+        // operator
+        // show equation
+        // when press equals
+        // render only answer
+    }
+    //calculatorDisplay.innerText 
+}
+
+RenderResult = () => {
+
+}
+
+CalculateResult = () => {
+    // if length of numberslist is less than operators then return invalid
+    // have element 0 of list of numbers first
+    // 
+}
+
 
 //console.log("input: " + input)
 // +
