@@ -1,5 +1,5 @@
 const buttons = document.getElementsByTagName("button");
-const calculatorDisplay = document.getElementsByClassName("display");
+const calculatorDisplay = document.getElementById("display-text");
 
 let currentInput = "";
 let output = 0;
@@ -46,8 +46,7 @@ for (let i = 0; i < buttons.length; i++) {
                 AddInputToList();
                 console.log("CALCULATE-----------------------------");
                 CalculateResult();
-                //ClearCalcaulator();
-                //RenderResult();
+                RenderResult();
                 console.log(output);
                 break;
             default:
@@ -64,6 +63,7 @@ ClearCalcaulator = () => {
     listOfNumbers = [];
     listOfOperators = [];
     output = 0;
+    RenderResult();
 }
 
 AddInputToList = () => {
@@ -88,11 +88,10 @@ RenderDisplay = () => {
 }
 
 RenderResult = () => {
-    calculatorDisplay.innerText = output;
+    calculatorDisplay.innerText = "" + output;
 }
 
 CalculateResult = () => {
-    let index = 0
     output = 0;
 
     // if length of numberslist is less than operators then return invalid
@@ -107,7 +106,7 @@ CalculateResult = () => {
         console.log("start 2: " + output);
         console.log(listOfNumbers);
         console.log(listOfOperators);
-        switch (listOfOperators[index]) {
+        switch (listOfOperators[0]) {
             // Implement bedmas later -- first must get actual functionality minimum working
             case ("+"):
                 output += listOfNumbers.shift();
@@ -126,7 +125,6 @@ CalculateResult = () => {
                 listOfOperators.shift();
                 break;
         }
-        index++;
         if (listOfNumbers <= 0) break;
     }
     console.log("end: " + output);
