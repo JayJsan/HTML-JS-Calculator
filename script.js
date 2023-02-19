@@ -285,6 +285,5 @@ HelperTestClickButton = (desiredButton) => {
                 buttons[i].click();
             }
         }
-    
     console.log("Button Test Click!");
 }
