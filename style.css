@@ -60,7 +60,7 @@ button {
     border-color: rgb(197, 197, 197);
     border-width: 1px;
     border-radius: 1px;
-    background: rgb(240, 240, 240);
+    background: rgb(243, 243, 243);
     color:rgb(36, 36, 36);
     transition: background-color 0.15s;
 }
@@ -77,6 +77,10 @@ button:hover {
     border-bottom-right-radius: 10px;
     background: rgb(252, 187, 91);
     height: 100%;
+}
+
+.equals:hover {
+    background: rgb(255, 205, 93);
 }
 
 .operator {
