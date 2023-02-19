@@ -96,46 +96,25 @@ CalculateResult = () => {
         return;
     }
 
-    while (listOfNumbers.length != 0 || listOfOperators.length != 0) {
-        // look for multiply and division first in operators list
-        // use array.find(isMultiplication)
-        // array.find(isDivide)
-        // if true, output = listOfNumbers(indexFound) x or / listofnumbers(indexFound + 1)
-        // array.splice(indexFound, 1)
-        // listOfNumbers.
-
-
-        console.log("start: " + output);
-        output += listOfNumbers.shift() * 1;
-        console.log("start 2: " + output);
-        console.log(listOfNumbers);
-        console.log(listOfOperators);
-        switch (listOfOperators[0]) {
-            // Implement bedmas later -- first must get actual functionality minimum working
-            case ("+"):
-                output += listOfNumbers.shift();
-                listOfOperators.shift();
-                break;
-            case ("-"):
-                output -= listOfNumbers.shift();
-                listOfOperators.shift();
-                break;
-            case ("×"):
-                output *= listOfNumbers.shift();
-                listOfOperators.shift();
-                break;
-            case ("÷"):
-                output = output / listOfNumbers.shift();
-                listOfOperators.shift();
-                break;
+    while (listOfOperators.length != 0) {
+        // B E D M A S
+        while (listOfOperators.includes("÷")) {
+            CalculateAndRemoveFromArray("÷");
         }
-        if (listOfNumbers <= 0) break;
+
+        while (listOfOperators.includes("×")) {
+            CalculateAndRemoveFromArray("×");
+        }
+        
+        while (listOfOperators.includes("+")) {
+            CalculateAndRemoveFromArray("+");
+        }
+
+        while (listOfOperators.includes("-")) {
+            CalculateAndRemoveFromArray("-");
+        }
     }
-    console.log("end: " + output);
-    console.log(listOfNumbers);
-    console.log(listOfOperators);
-    // have element 0 of list of numbers first
-    // 
+    output = listOfNumbers[0];
 }
 
 AddTwoNumbers = (a, b) => {
@@ -152,6 +131,65 @@ MultiplyTwoNumbers = (a, b) => {
 
 DivideTwoNumbers = (a, b) => {
     return a / b;
+}
+
+CalculateAndRemoveFromArray = (operator) => {
+    let index = null;
+    let result = null;
+    // take index of that element
+    switch (operator) {
+        case ("+"):
+            index = listOfOperators.indexOf("+");
+            break;
+        case ("-"):
+            index = listOfOperators.indexOf("-");
+            break;
+        case ("×"):
+            index = listOfOperators.indexOf("×");
+            break;
+        case ("÷"):
+            index = listOfOperators.indexOf("÷");
+            break;
+        default:
+            console.log("Calculating Result Function Error, Operator not valid");
+            break;
+    }
+
+    if (index === -1) {
+        output = "Math Error";
+        return;
+    } 
+
+    // use same index to find the first number to calculate with
+    const firstNumber = listOfNumbers[index];
+    // index + 1 to find the second number
+    const secondNumber = listOfNumbers[index + 1];
+    // calculate result
+
+    switch (operator) {
+        case ("+"):
+            result = AddTwoNumbers(firstNumber, secondNumber);
+            break;
+        case ("-"):
+            result = SubtractTwoNumbers(firstNumber, secondNumber);
+            break;
+        case ("×"):
+            result = MultiplyTwoNumbers(firstNumber, secondNumber);
+            break;
+        case ("÷"):
+            result = DivideTwoNumbers(firstNumber, secondNumber);
+            break;
+        default:
+            console.log("Calculating Result Function Error, Operator not valid");
+            break;
+    }
+    
+    // replace original first number at index with result
+    listOfNumbers[index] = result;
+    // remove original second number from listofnumbers array
+    listOfNumbers.splice(index + 1, 1);
+    // remove operator from listofoperators array
+    listOfOperators.splice(index, 1);
 }
 
 // TEST CASES AREA -------------------------------------------------------------------------------------------------------
@@ -227,7 +265,8 @@ HelperTestClickButton = (desiredButton) => {
             // Simulate desired button click 
             if (buttons[i].innerText === desiredButton) {
                 buttons[i].click();
+            }
         }
-    }
+    
     console.log("Button Test Click!");
 }
