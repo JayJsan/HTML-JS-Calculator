@@ -1,3 +1,9 @@
+div, button, p {
+    font-family: Roboto;
+}
+
+
+/* DISPLAY */
 .display-container {
     height: 100%;
     text-align: right;
@@ -7,27 +13,35 @@
 
 .display {
     height: 100%;
-    background-color:lightblue;
-    padding: 10px 5px 100px 100px;
-    border: 1px solid green;
-    border-radius: 10px;
+    background-color:rgb(39, 39, 39);
+    padding: 2px 2% 2% 2%;
+    border-radius: 10px 10px 0px 0px;
     text-align: right;
     margin: 0 0 0 0;
 }
 
-.calculator-container {
-    background-color: black;
-    border: 1px solid red;
-    border-radius: 10px;
-    width: 50%;
-    height: 70%;
+.display-text {
+    display:block;
+    width: 100%;
+    word-wrap:break-word;
 }
 
+/* DISPLAY */
+/* CALCULATOR CONTAINER */
+.calculator-container {
+    background-color: rgb(39, 39, 39);
+    border: none solid rgb(167, 163, 163);
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+}
+/* CALCULATOR CONTAINER */
+/* KEYS */
 .keys-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1px;
-    background-color: aqua;
+    background-color: rgb(167, 163, 163);
     border-radius: 10px;
 }
 
@@ -36,17 +50,34 @@
     flex-direction: column;
 }
 
-.key-cell, .key-cell-operator, .key-cell-equals {
-    border: 1px solid red;
-    text-align: center;
-    cursor: pointer;
+button {
+    padding: 20 20 20 20;
+    margin: 0 0 0 0;
+    border-color: rgb(197, 197, 197);
+    border-width: 1px;
+    border-radius: 1px;
+    background: rgb(240, 240, 240);
+    color:rgb(36, 36, 36);
+    transition: background-color 0.15s;
 }
 
-.key-cell-operator {
-    background-color: lightgray;
+button:hover {
+    background-color: rgb(230, 235, 240);
 }
 
-.key-cell-equals {
-    background-color: orange;
-    flex: 1;
+.zero {
+    border-bottom-left-radius: 10px;
 }
+
+.equals {
+    border-bottom-right-radius: 10px;
+    background: rgb(252, 187, 91);
+    height: 100%;
+}
+
+.operator {
+    background: rgb(216, 216, 216);
+}
+
+
+/* KEYS */
