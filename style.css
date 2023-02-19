@@ -1,5 +1,6 @@
 div, button, p {
     font-family: Roboto;
+    font-weight: 300;
 }
 
 
@@ -24,6 +25,8 @@ div, button, p {
     display:block;
     width: 100%;
     word-wrap:break-word;
+    font-family: Roboto;
+    font-weight: 300;
 }
 
 /* DISPLAY */
@@ -33,7 +36,7 @@ div, button, p {
     border: none solid rgb(167, 163, 163);
     border-radius: 10px;
     width: 200px;
-    height: 200px;
+    height: 100%;
 }
 /* CALCULATOR CONTAINER */
 /* KEYS */
@@ -43,6 +46,7 @@ div, button, p {
     grid-gap: 1px;
     background-color: rgb(167, 163, 163);
     border-radius: 10px;
+    height: 100px;
 }
 
 .keys-column {
