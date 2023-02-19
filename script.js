@@ -97,6 +97,14 @@ CalculateResult = () => {
     }
 
     while (listOfNumbers.length != 0 || listOfOperators.length != 0) {
+        // look for multiply and division first in operators list
+        // use array.find(isMultiplication)
+        // array.find(isDivide)
+        // if true, output = listOfNumbers(indexFound) x or / listofnumbers(indexFound + 1)
+        // array.splice(indexFound, 1)
+        // listOfNumbers.
+
+
         console.log("start: " + output);
         output += listOfNumbers.shift() * 1;
         console.log("start 2: " + output);
@@ -128,6 +136,22 @@ CalculateResult = () => {
     console.log(listOfOperators);
     // have element 0 of list of numbers first
     // 
+}
+
+AddTwoNumbers = (a, b) => {
+    return a + b;
+}
+
+SubtractTwoNumbers = (a, b) => {
+    return a - b;
+}
+
+MultiplyTwoNumbers = (a, b) => {
+    return a * b;
+}
+
+DivideTwoNumbers = (a, b) => {
+    return a / b;
 }
 
 // TEST CASES AREA -------------------------------------------------------------------------------------------------------
@@ -179,6 +203,22 @@ DivideTwoNumbersTest = () => {
     HelperTestClickButton("2");
     HelperTestClickButton("=");
     console.log("Expected: 3!");
+    console.log("Actual: " + output);
+}
+
+BedmasTest = () => {
+    console.log("Running BedmasTest!");
+    HelperTestClickButton("2");
+    HelperTestClickButton("+");
+    HelperTestClickButton("3");
+    HelperTestClickButton("×");
+    HelperTestClickButton("4");
+    HelperTestClickButton("-");
+    HelperTestClickButton("2");
+    HelperTestClickButton("÷");
+    HelperTestClickButton("2");
+    HelperTestClickButton("=");
+    console.log("Expected: 13!");
     console.log("Actual: " + output);
 }
 
