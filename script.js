@@ -73,63 +73,9 @@ for (let i = 0; i < buttons.length; i++) {
             console.log(currentInput);
             console.log(listOfNumbers);
             })
+            break;
     }
-
 }
-
-
-// for (let i = 0; i < buttons.length; i++) {
-//     buttons[i].addEventListener("click", function(){
-//         let buttonPressed = buttons[i].innerText;
-//         //console.log("button:" + buttons[i].innerText);
-//         switch (buttonPressed) {
-//             case ("+"):
-//                 listOfOperators.push("+");
-//                 AddInputToList();
-//                 RenderDisplay(buttonPressed);
-//                 console.log(listOfOperators);
-//                 break;
-//             case ("-"):
-//                 listOfOperators.push("-");
-//                 AddInputToList();
-//                 RenderDisplay(buttonPressed);
-//                 break;
-//             case ("×"):
-//                 listOfOperators.push("×");
-//                 AddInputToList();
-//                 RenderDisplay(buttonPressed);
-//                 break;
-//             case ("÷"):
-//                 listOfOperators.push("÷");
-//                 AddInputToList();
-//                 RenderDisplay(buttonPressed);
-//                 break;
-//             case ("."):
-//                 currentInput += buttonPressed;
-//                 RenderDisplay(buttonPressed);
-//                 console.log(currentInput);
-//                 break;
-//             case ("AC"):
-//                 console.log("clear");
-//                 ClearCalcaulator();
-//                 //RenderDisplay();
-//                 break;
-//             case ("="):
-//                 AddInputToList();
-//                 console.log("CALCULATE-----------------------------");
-//                 CalculateResult();
-//                 RenderResult();
-//                 console.log(output);
-//                 break;
-//             default:
-//                 currentInput += buttonPressed;
-//                 RenderDisplay(buttonPressed);
-//                 console.log(currentInput);
-//                 console.log(listOfNumbers);
-//         }
-
-//     });
-// }
 
 ClearCalcaulator = () => {
     currentInput = [];

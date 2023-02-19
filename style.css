@@ -1,11 +1,24 @@
 .display-container {
-    border: 1px solid red;
+    height: 100%;
     text-align: right;
-    background-color: black;
+    /* background-color: black; */
     color: white;
 }
 
+.display {
+    height: 100%;
+    background-color:lightblue;
+    padding: 10px 5px 100px 100px;
+    border: 1px solid green;
+    border-radius: 10px;
+    text-align: right;
+    margin: 0 0 0 0;
+}
+
 .calculator-container {
+    background-color: black;
+    border: 1px solid red;
+    border-radius: 10px;
     width: 50%;
     height: 70%;
 }
@@ -14,6 +27,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1px;
+    background-color: aqua;
+    border-radius: 10px;
 }
 
 .keys-column {
